@@ -1,0 +1,19 @@
+{
+  "passed": [
+    "30 compact quotation rows; comfortable density increases row height",
+    "column persistence and reset",
+    "bulk count, clear, destructive confirmation cancel",
+    "Manage clipboard copy",
+    "Back retains query, sorting and page size",
+    "favorite state and internal note save",
+    "unsaved changes guard",
+    "pre-send verification",
+    "grouped search, Ctrl+K, arrows and Escape",
+    "light/dark at desktop, laptop and tablet widths without page overflow",
+    "sidebar account persistence",
+    "editor excludes new styles/scripts"
+  ],
+  "compact_row_px": 45,
+  "comfortable_row_px": 55,
+  "javascript_errors": []
+}

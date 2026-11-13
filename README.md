@@ -1,3 +1,15 @@
+# Cirrus Workplace — Version 21.1
+
+Complete UX refinement release built from the uploaded V21 live application.
+
+- [V21.1 installation, testing and rollback](VERSION-21.1-INSTALL.md)
+- [V21.1 changelog](CHANGELOG-V21.1.md)
+- [V21.1 test results and known limitations](docs/V21.1-TEST-RESULTS.md)
+
+Quotation secondary actions now live in **Manage**; the quotation editor and existing filters are preserved. Existing V21 documentation below remains available for architecture, business features and deployment profiles.
+
+---
+
 # Cirrus Workplace V21 — complete live package
 
 On the **same server as V20**, stop V20, extract to a separate folder, run **setup.bat**, then **start.bat**. Setup carries over your existing configuration, accounts, records and files into a separate V21 live copy. Use your existing login. No empty test database or manual initialization commands are required.

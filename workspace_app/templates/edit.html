@@ -1,6 +1,6 @@
 {% extends 'base.html' %}{% block content %}<div class="eyebrow">WORKSPACE / {{ kind|upper }}</div><h1>{{ 'Edit' if record else 'Create' }} {{ kind }}</h1><p class="muted">Keep the details together. You can always refine them later.</p>
 {% if error %}<div class="error" role="alert">{{ error }}</div>{% endif %}
-<form method="post" class="card edit-form" id="record-form"><input type="hidden" name="csrf" value="{{ csrf() }}"><div class="form-grid">
+<form method="post" class="card edit-form" id="record-form" data-unsaved><input type="hidden" name="csrf" value="{{ csrf() }}"><div class="form-grid">
 {% for key,title,control in fields %}<label class="{{ 'wide' if control=='area' else '' }}">{{ title }}
 {% if control=='area' %}<textarea name="{{ key }}" rows="4">{{ d.get(key,'') }}</textarea>
 {% elif control in ['status','note_type','project','category','subcategory','parent','visibility','customer'] %}<select name="{{ key }}"><option value="">Choose…</option>

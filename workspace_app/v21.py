@@ -258,4 +258,8 @@ def install(app):
         return response
     @app.context_processor
     def conveniences():
-        return dict(v21_validity=validity,v21_live=current_app.config.get('V21_LIVE',False),v21_build=current_app.config.get('V21_BUILD','source'))
+        favorites = set()
+        if actor():
+            with store.connect(current_app.config['DATA_DIR']) as db:
+                favorites = {row[0] for row in db.execute('SELECT record_id FROM user_favorites WHERE user_id=?', (actor(),))}
+        return dict(v21_favorites=favorites,v21_validity=validity,v21_live=current_app.config.get('V21_LIVE',False),v21_build=current_app.config.get('V21_BUILD','source'))

@@ -1,0 +1,35 @@
+/* V21.1 shell and list refinements. This file is never loaded by quotes.editor.
+   Quotation filter rules and all existing editor assets remain untouched. */
+.ux21 :is(a,button,input,select,textarea,summary):focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.ux21 #workspace-nav{border-right:1px solid var(--line);box-shadow:2px 0 16px #07172508}
+.ux21 #workspace-nav nav>a{border-radius:8px;margin:2px 8px;padding:9px 10px;transition:background .12s}
+.ux21 #workspace-nav nav>a.active{box-shadow:inset 3px 0 var(--accent);font-weight:650}
+.ux21 .nav-group{display:block;padding:15px 18px 4px;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.ux21.nav-collapsed .nav-group{height:12px;padding:0;font-size:0}
+.ux21 .header-tools{gap:10px}.ux21 .global-search{max-width:440px;flex:1}
+.ux21 .global-search input{min-width:100px}
+.ux21 .page>.heading{margin-bottom:18px}.ux21 .card{border-radius:10px;box-shadow:0 2px 8px #07172505}
+.ux21 .ux-breadcrumbs{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted);margin:0 0 14px;flex-wrap:wrap}
+.ux21 .manage-actions .toolbar{display:flex;gap:10px 18px;align-items:center;flex-wrap:wrap}.ux21 .manage-actions form{margin:0}
+.ux21 .manage-actions h2,.ux21 .search-results h2{font-size:15px;margin-top:0}
+.ux21 .ux-search-result{display:flex;gap:14px;align-items:center;padding:12px 8px;border-top:1px solid var(--line);text-decoration:none}
+.ux21 .ux-search-result>span:nth-child(2){flex:1;min-width:0;overflow-wrap:anywhere}.ux21 .ux-search-result small{display:block;color:var(--muted);margin-top:4px}
+.ux21 .ux-search-result:hover,.ux21 .ux-search-result:focus{background:var(--surface-alt)}
+.ux21 .compact-quotations td{padding-top:5px!important;padding-bottom:5px!important;vertical-align:middle}
+.ux21[data-table-density=comfortable] .compact-quotations td{padding-top:10px!important;padding-bottom:10px!important}
+.ux21 .compact-quotations td:last-child{white-space:nowrap}.ux21 .compact-quotations td:last-child>*{display:inline-block;vertical-align:middle;margin:0 3px}
+.ux21 .compact-quotations .document-title>a{display:inline-block;max-width:290px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:middle}
+.ux21 .compact-quotations .rename-title{display:inline-block;vertical-align:middle;margin:0 3px}
+.ux21 .compact-quotations .rename-title[open]{position:relative}.ux21 .compact-quotations .rename-title form{position:absolute;z-index:12;min-width:220px;padding:12px;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.ux21 [data-listing-table] thead th{position:sticky;top:0;z-index:2;background:var(--surface-alt)}
+.ux21 .column-menu{position:relative;margin-left:auto}.ux21 .column-menu>summary{cursor:pointer;font-size:12px;padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+.ux21 .column-options{position:absolute;right:0;z-index:15;min-width:210px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px;box-shadow:0 8px 24px #07172520}
+.ux21 .column-options label{display:flex;align-items:center;gap:8px;font-size:12px;margin:6px 0}.ux21 .column-options input{width:auto;margin:0}
+.ux21 .column-options button{margin:8px 0 0}.ux21 [aria-busy=true]{cursor:progress}
+.ux21 .selection-toolbar[data-selected=true]{padding:8px 10px!important;border:1px solid var(--accent)!important;border-radius:8px;background:var(--surface-alt)!important}
+.ux21 .field-error{color:var(--ink);font-size:12px}.ux21 input[aria-invalid=true]{border-color:#bb4646}
+@media(max-width:1100px){.ux21 .portal-header{flex-wrap:wrap}.ux21 .header-tools{flex-wrap:wrap}.ux21 .compact-quotations .document-title>a{max-width:220px}}
+@media(prefers-reduced-motion:reduce){.ux21 #workspace-nav nav>a{transition:none}}
+.ux21 [data-listing-table]{max-height:none;height:auto}
+.ux21 .document-table .document-title{white-space:nowrap}
+.ux21 .document-table :is(td:nth-child(4),td:nth-child(5),td:nth-child(6),td:nth-child(7)){white-space:nowrap}

@@ -1,0 +1,19 @@
+{
+  "workspace_app/templates/quotation_editor.html": "5738de70231792078a2262c0b87d739d9cceb82896b9088429881a3a77e77eb4",
+  "workspace_app/templates/quotation_document.html": "8a84a1bd6ea5f94a786067f70202a0691eba59300c93afcd77539ef638302958",
+  "workspace_app/static/quotation_editor.js": "d507ad37a5c00cbcad53987d4d5b5fa94545fe57aaa1e73c0c95efb1870b6460",
+  "workspace_app/static/quotation.css": "9c04f8797ade7141dc1eaeb751b7f13df1fbd50cd8d6e4583a3d0ff8d7d389c5",
+  "workspace_app/static/app.css": "1dc148c5341f995755f9e35870997c2595bca1fc6d004b60d6da91ea80bcb2bd",
+  "workspace_app/static/portal.css": "6f59e2adda07ba094463dd16c59932742a5dc7815b8d1601eca20a2f7d0ecdd2",
+  "workspace_app/static/workspace15.css": "9dd192171afb48fb3e21c92e878cb1b7602be316437b83233781111720e0351c",
+  "workspace_app/static/quotation_list.css": "cab906e4358c02791fab4bdf7d368220bf4021b21615eedd4fd59dfb1226822d",
+  "workspace_app/quotation.py": "76cdd5b476d72ea7fd03ba4da8f4741b4712fa5213aad1856daa1f07f8f19d07",
+  "workspace_app/quote_routes.py": "bdc2264f33cc9b68f3d2a796f2564935eb5e4698fa58fc0c82fe3ea0b24c4d46",
+  "workspace_app/quote_excel.py": "e27f2af85c5dbe2c9b497e613fa556ad6c99f0bcd2365f2fdf27ec7e2e009d64",
+  "workspace_app/approvals.py": "31983bc1c1d53d16aa8a8e3298ec4043563bb600e92f4ba2b235dc7362c62782",
+  "workspace_app/approval_routes.py": "b4c74eca203e7aa7e05cb6895eff78897561efd08f56572e98ebe254c7ae9f76",
+  "setup.bat": "bb678c5930e0f86ec2eca59e8c429d4247e4dce8fd58b0a2d893b20a99ee7a22",
+  "start.bat": "a0bd3ec090aaf0cfc7288051511b648e5331cfa1cd55df79e62fa7e07f051534",
+  "start-v21.bat": "a3c47766b76b4127ee21270573d9abb3a8d34ecbdeadc760db7de2dd8ff9b2eb",
+  "stop-v21.bat": "d4a5880e517c0d3ec9dd24f38c144c931f2f1a5b09325db914b1d00440974907"
+}

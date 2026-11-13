@@ -32,7 +32,7 @@ with tempfile.TemporaryDirectory() as td:
             page.goto(BASE+'/login');page.get_by_label('Username',exact=True).fill('browser-admin');page.get_by_label('Password',exact=True).fill('Synthetic-browser-password-21!');page.get_by_role('button',name='Sign in',exact=True).click();page.wait_for_url(BASE+'/')
             expect(page.get_by_text('Needs Your Attention',exact=True)).to_be_visible()
             page.screenshot(path=str(ART/'dashboard-light.png'),full_page=True)
-            page.goto(BASE+'/list/quote');page.get_by_role('button',name='Copy link',exact=True).click();expect(page.get_by_text('Link copied.',exact=True)).to_be_visible()
+            page.goto(BASE+'/list/quote');page.get_by_role('link',name='Manage',exact=True).click();page.get_by_role('button',name='Copy link',exact=True).click();expect(page.get_by_text('Link copied.',exact=True)).to_be_visible()
             assert page.evaluate('navigator.clipboard.readText()')==BASE+'/record/'+ident
             page.get_by_role('button',name='☆ Favorite',exact=True).click();page.wait_for_url(BASE+'/v21/shortcuts');expect(page.get_by_role('heading',name='Favorites',exact=True)).to_be_visible()
             page.goto(BASE+'/quotes/'+ident+'/internal-notes');page.locator('textarea[name=body]').fill('Synthetic internal browser note')

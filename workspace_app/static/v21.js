@@ -24,6 +24,6 @@
   // Guard ordinary edit forms too; specialized editors retain their existing handlers.
   for (const form of document.querySelectorAll('form[method="post"]')) {
     if (form.matches('[data-unsaved]') || form.id === 'quotation-form' || form.closest('.quotation-editor')) continue;
-    if (form.querySelector('textarea,input[type="text"],input[type="date"],input[type="file"]')) form.dataset.unsaved = '';
+    if (form.querySelector('textarea,input[type="text"],input:not([type]),input[type="email"],input[type="number"],input[type="date"],input[type="file"]')) form.dataset.unsaved = '';
   }
 })();
