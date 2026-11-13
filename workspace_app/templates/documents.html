@@ -1,6 +1,8 @@
 {% extends 'base.html' %}{% block content %}{% from 'approval_indicators.html' import approval_dots %}
 <link rel="stylesheet" href="{{ url_for('static',filename='quotation_list.css') }}">
 <div class="heading quotation-list-heading"><div><h1>Quotations</h1><p class="muted">Quotations and related documents</p></div><div class="quotation-heading-actions"><button type="button" class="secondary" id="open-document-utilities" aria-haspopup="dialog" aria-controls="document-utilities">Tools & management</button>{% if not user or user.role!='Viewer' %}<a class="button" href="/documents/new">+ New document</a>{% endif %}</div></div>
+{% from 'premium_icons.html' import icon %}<section class="premium-metrics" aria-label="Quotation workspace summary">
+{% for title,value,ico,tone in [('Matching documents',counts.documents,'quote','blue'),('My pending approvals',pending_approval_count,'clock','amber'),('Sent quotations',counts.sent,'send','green'),('My saved favorites',v21_favorites|length,'star','violet')] %}<div class="premium-metric {{ tone }}"><span class="metric-icon">{{ icon(ico) }}</span><div><span>{{ title }}</span><strong>{{ value }}</strong></div></div>{% endfor %}</section>
 <div class="document-workspace quotation-list-workspace"><section class="document-list">
 {% set advanced=namespace(labels=[]) %}
 {% for field,default,label in [('filter_month','0','Month'),('filter_year','all','Year'),('basis','created','Date basis'),('type','','Type'),('owner','','Owner'),('status','','Business status'),('sort','activity','Sort'),('per_page','25','Rows')] %}

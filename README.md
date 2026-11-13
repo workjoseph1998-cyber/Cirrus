@@ -1,3 +1,19 @@
+# Cirrus Workplace — Version 21.2
+
+Midnight Azure premium UI release, based on V21.1. The shared application shell,
+navigation, dashboard, quotations, customer workspaces, projects, reports and
+administrative screens use a coordinated enterprise design in light and dark modes.
+Both quotation editors, business calculations and existing quotation filters are preserved.
+
+- [Installation, testing and rollback](VERSION-21.2-INSTALL.md)
+- [Detailed V21.2 changelog](CHANGELOG-V21.2.md)
+- [UI redesign and before/after screenshots](docs/V21.2-UI-REVIEW.md)
+- [Test results and known limitations](docs/V21.2-TEST-RESULTS.md)
+
+The older release documentation below remains available for architecture and rollback.
+
+---
+
 # Cirrus Workplace — Version 21.1
 
 Complete UX refinement release built from the uploaded V21 live application.
