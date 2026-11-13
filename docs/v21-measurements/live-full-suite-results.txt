@@ -1,0 +1,51 @@
+........................................................................................................................./workspace/cirrus-workplace-v21/tests/test_v11.py:51: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/tmpll5mt69_/data/attachments/retained.xlsx'>
+  self.assertEqual(self.c.get('/attachment/retained-workbook').data,data.getvalue())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+........................................................./workspace/cirrus-workplace-v21/tests/test_v15.py:165: ResourceWarning: unclosed file <_io.BufferedReader name=4>
+  self.assertEqual(self.c.get(self.url+'/'+self.find('REPORT.PDF')['id']+'/download').data,b'replacement')
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+......./opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/ast.py:280: ResourceWarning: unclosed file <_io.BufferedRandom name=3>
+  yield item
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/workspace/cirrus-workplace-v21/tests/test_v15.py:242: ResourceWarning: unclosed file <_io.BufferedReader name=4>
+  self.assertEqual(client.get(self.url+'/'+item['id']+'/download').data,b'first version');self.assertEqual(before,self.path(item))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.......................................................Copying V20 database and attachments into independent V21 storage...
+Copying existing documents into V21; originals remain in place...
+Copying existing exports into V21; originals remain in place...
+V21 live copy ready. Use your existing V20 login. All new work goes to V21 storage.
+.
+Setup complete. Run start.bat, then open your existing IIS URL or http://127.0.0.1:8000 (HTTP profiles).
+Use your existing login. V20 data is unchanged. Existing SMTP settings are retained.
+Copying V20 database and attachments into independent V21 storage...
+Copying existing documents into V21; originals remain in place...
+.Copying V20 database and attachments into independent V21 storage...
+Copying existing documents into V21; originals remain in place...
+Copying existing exports into V21; originals remain in place...
+V21 live copy ready. Use your existing V20 login. All new work goes to V21 storage.
+.Copying V20 database and attachments into independent V21 storage...
+Copying existing documents into V21; originals remain in place...
+Copying existing exports into V21; originals remain in place...
+V21 live copy ready. Use your existing V20 login. All new work goes to V21 storage.
+................................................................
+----------------------------------------------------------------------
+Ran 307 tests in 211.295s
+
+OK
+Using existing V21 live data; no re-import or migration performed.
+V21 settings: /tmp/tmp0vfn0uib/Local/CirrusWorkplaceV21Live/Config/profile.json
+V21 data: /tmp/tmp0vfn0uib/Local/CirrusWorkplaceV21Live/Data
+V21 settings: /tmp/tmpferq7jj2/Local/CirrusWorkplaceV21Live/Config/profile.json
+V21 data: /tmp/tmpferq7jj2/Local/CirrusWorkplaceV21Live/Data
+
+Create your V21 administrator. V20 accounts are not changed.
+
+Setup complete. Run start.bat, then open your existing IIS URL or http://127.0.0.1:8000 (HTTP profiles).
+Use your existing login. V20 data is unchanged. Existing SMTP settings are retained.
+V21 settings: /tmp/tmpferq7jj2/Local/CirrusWorkplaceV21Live/Config/profile.json
+V21 data: /tmp/tmpferq7jj2/Local/CirrusWorkplaceV21Live/Data
+
+Setup complete. Run start.bat, then open your existing IIS URL or http://127.0.0.1:8000 (HTTP profiles).
+Use your existing login. V20 data is unchanged. Existing SMTP settings are retained.
+V21 settings: /tmp/tmp1nfpbw2o/Local/CirrusWorkplaceV21Live/Config/profile.json
+V21 data: /tmp/tmp1nfpbw2o/Local/CirrusWorkplaceV21Live/Data

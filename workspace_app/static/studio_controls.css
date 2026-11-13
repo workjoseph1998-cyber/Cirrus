@@ -1,0 +1,59 @@
+/* Placement of existing studio controls only. Customer documents use their own stylesheet. */
+.studio-heading-actions{flex-wrap:wrap;justify-content:flex-end;gap:6px}
+.studio-heading-actions #open-approvers-submission,.studio-heading-actions #toggle-quotation-options{font-size:11px;padding:8px 10px;white-space:nowrap}
+.studio-layout{display:flex;flex:1;min-height:0;min-width:0;overflow:hidden}
+.studio-layout>.studio{min-width:0;flex:1}
+.studio-layout>.studio-option-pane{width:164px;flex:0 0 164px;margin:12px 12px 12px 0;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);align-self:flex-start;padding:11px}
+.studio-option-pane .studio-options-heading{display:flex;align-items:center;justify-content:space-between;gap:5px;margin-bottom:12px;font-size:12px}
+.studio-option-pane #close-quotation-options{font-size:18px;line-height:1;min-height:26px;padding:3px 7px;margin:0}
+.studio-option-pane>label{display:flex;align-items:flex-start;gap:7px;font-size:11px;line-height:1.6;margin:10px 0}
+.studio-option-pane input[type=checkbox]{width:15px;height:15px;flex:0 0 15px;margin:2px 0 0}
+.studio-layout>[hidden],.studio-submission-dialog [hidden]{display:none!important}
+.portal-shell .studio-submission-dialog{width:min(650px,94vw);max-width:94vw;max-height:88dvh;padding:18px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);overflow:auto}
+.studio-submission-dialog::backdrop,.studio-options-dialog::backdrop{background:#07172580}
+.studio-submission-dialog .studio-dialog-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:12px}
+.studio-submission-dialog .studio-dialog-heading h2{margin:0;font-size:18px}
+.studio-submission-dialog p{font-size:12px;line-height:1.6}
+.studio-submission-dialog .workflow-mini{margin:10px 0;padding:10px;background:var(--surface-alt);border:1px solid var(--line);border-radius:6px}
+.studio-submission-dialog .workflow-mini #editor-workflow-status{font-size:12px}
+.studio-submission-dialog .approvers-editor h3{font-size:13px}
+.studio-submission-dialog .approvers-editor p{font-size:11px}
+.studio-submission-dialog .approver-selection-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;padding:9px;margin:8px 0;background:var(--surface-alt);border-color:var(--line)}
+.studio-submission-dialog .approver-selection-row select{padding:7px;font-size:12px}
+.studio-submission-dialog .approver-row-tools{grid-column:1/-1}
+.studio-submission-dialog .approver-row-tools button{padding:4px 8px;min-height:27px;font-size:10px}
+.studio-submission-dialog .studio-submission-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.studio-submission-dialog button{font-size:12px}
+.studio-draft-approvers{margin:10px 0;font-size:11px;padding:9px;border:1px solid var(--line);border-radius:6px}
+.studio-draft-approvers .approval-dots{margin:7px 8px 0 0}
+.studio-submission-dialog .approval-progress-summary{font-size:11px}
+.portal-shell .studio-options-dialog{position:fixed;inset:0 0 0 auto;margin:0;width:240px;max-width:90vw;height:100dvh;max-height:100dvh;padding:16px;border:0;border-left:1px solid var(--line);border-radius:0;background:var(--surface);color:var(--ink)}
+.studio-options-dialog .studio-option-pane{padding:0;margin:0;width:auto;border:0}
+@media(max-width:1100px){.studio-layout>.studio-option-pane{display:none}.studio-heading-actions #preview-status{max-width:180px}.studio-heading-actions #open-approvers-submission{max-width:190px;white-space:normal}}
+@media(max-width:780px){.portal-shell .studio-submission-dialog{padding:12px;max-height:90dvh}.studio-submission-dialog .studio-dialog-heading{align-items:flex-start}.studio-submission-dialog .studio-dialog-heading h2{font-size:16px}.studio-submission-dialog .approver-selection-row{grid-template-columns:minmax(0,1fr)}.studio-submission-dialog .approver-row-tools{grid-column:1}.studio-heading-actions #open-approvers-submission{font-size:10px;padding:6px 7px}.studio-heading-actions #toggle-quotation-options{font-size:10px;padding:6px 7px}}
+/* Keep the relocated approver selector compact despite legacy left-pane rules. */
+.portal-shell .studio-submission-dialog .approver-selection-row{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr) auto;align-items:end;padding:8px;margin:8px 0}
+.portal-shell .studio-submission-dialog .approver-selection-row label{display:block;min-width:0;margin:0;font-size:11px}
+.portal-shell .studio-submission-dialog .approver-selection-row select{display:block;width:100%;margin:5px 0 0;padding:7px;font-size:12px}
+.portal-shell .studio-submission-dialog .approver-row-tools{grid-column:auto;align-self:end;gap:4px}
+@media(max-width:780px){.portal-shell .studio-submission-dialog .approver-selection-row{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}.portal-shell .studio-submission-dialog .approver-row-tools{grid-column:1/-1}.portal-shell .studio-submission-dialog .approver-selection-row select{font-size:11px}}
+.studio-submission-dialog .studio-submission-actions{position:sticky;bottom:0;z-index:2;background:var(--surface);padding:10px 0;border-top:1px solid var(--line)}
+
+/* No reserved space for closed structure or quotation options. */
+.studio.structure-collapsed{grid-template-columns:minmax(0,1fr)!important}
+.studio.structure-collapsed>.studio-editor,.studio.structure-collapsed>#studio-divider{display:none!important}
+.studio.structure-collapsed>.studio-preview{grid-column:1;min-width:0}
+.studio-options-dialog{position:fixed;inset:80px 16px auto auto;width:min(340px,90vw);margin:0;padding:16px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.studio-options-dialog .studio-option-pane{width:auto;margin:0}
+
+/* Refinements: primary work actions left, settings and exports right. */
+.studio-heading{flex:0 0 auto;display:block!important;margin-bottom:6px}
+.studio-toolbar{display:flex;flex:0 0 auto;justify-content:space-between;align-items:center;gap:16px;padding:0 2px 8px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.studio-primary-actions,.studio-heading-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0}
+.studio-primary-actions>.button{background:var(--accent,#126b82);color:#fff;font-weight:700}
+.studio-toolbar button,.studio-toolbar .button,.studio-toolbar summary{font-size:11px!important;padding:7px 9px!important;min-height:32px}
+.studio-toolbar .export-start{border-left:2px solid var(--line);margin-left:7px}
+.studio-toolbar #preview-status{font-size:10px;max-width:210px}
+.studio-heading h1{margin:2px 0!important;font-size:20px!important}
+@media(max-width:1100px){.studio-heading-actions{justify-content:flex-start}.studio-toolbar{gap:8px}.studio-toolbar #preview-status{flex-basis:100%;max-width:none}}
+@media(max-width:600px){.studio-primary-actions{width:100%}.studio-toolbar{display:block}.studio-heading-actions{margin-top:8px;gap:5px}.studio-toolbar .export-start{margin-left:0}.studio-toolbar button,.studio-toolbar .button{padding:6px 7px!important}}

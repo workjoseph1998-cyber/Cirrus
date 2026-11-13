@@ -1,0 +1,9 @@
+'use strict';
+(() => {
+const data=JSON.parse(document.getElementById('initial-contract').textContent), form=document.getElementById('contract-form'), body=document.querySelector('#contract-services tbody');
+const el=(t,text)=>{const n=document.createElement(t);if(text!==undefined)n.textContent=text;return n;};
+function render(){body.replaceChildren();data.services.forEach((r,index)=>{const tr=el('tr');for(const key of ['service','quantity','unit_price','discount','billing','basis','method','notes']){const td=el('td');let input;if(['billing','basis','method'].includes(key)){input=el('select');for(const v of key==='billing'?['monthly','one_time']:key==='basis'?['fixed','actual']:['unit','fixed']){const o=el('option',v);o.value=v;input.append(o);}}else{input=el(key==='notes'?'textarea':'input');if(['quantity','unit_price','discount'].includes(key)){input.type='number';input.step='any';input.min=0;if(key==='discount')input.max=100;}}input.value=r[key];input.setAttribute('aria-label',key+' for service '+(index+1));input.addEventListener('input',()=>r[key]=input.value);td.append(input);tr.append(td);}const td=el('td'),b=el('button','Remove');b.type='button';b.addEventListener('click',()=>{data.services.splice(index,1);render();});td.append(b);tr.append(td);body.append(tr);});}
+document.getElementById('add-contract-service').addEventListener('click',()=>{data.services.push({id:crypto.randomUUID().replaceAll('-',''),item_key:'',service:'New service',quantity:'1',unit_price:'0',discount:'0',billing:'monthly',basis:'fixed',method:'unit',notes:''});render();});
+form.querySelectorAll('[data-contract]').forEach(n=>n.addEventListener('input',()=>data[n.dataset.contract]=n.value));
+form.addEventListener('submit',()=>document.getElementById('contract-data').value=JSON.stringify(data));render();
+})();

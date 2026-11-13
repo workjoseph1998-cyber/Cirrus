@@ -1,0 +1,46 @@
+/* Editor shell only. The quotation iframe stylesheet and sheet geometry are unchanged. */
+body.portal-shell:has(.editor-margin-layout) main>header.portal-header{height:56px;min-height:56px;padding:4px 20px;gap:12px}
+body.portal-shell:has(.editor-margin-layout) .page{height:calc(100dvh - var(--quotation-header-height,56px))!important}
+.quotation-nav-context{display:flex;align-items:center;gap:10px;flex:0 0 auto;min-width:0}
+.quotation-nav-context h1{font-size:17px!important;line-height:1.2;margin:0!important;white-space:nowrap}
+#open-quotation-controls{font-size:11px;padding:6px 8px}
+.editor-margin-layout .studio{position:relative;grid-template-columns:minmax(0,1fr)!important}
+.editor-margin-layout #studio-divider{display:none!important}
+.editor-margin-layout .studio-preview{position:relative;grid-column:1;min-width:0}
+.editor-margin-layout .studio-preview>iframe{display:block}
+.editor-margin-layout .studio:not(.structure-collapsed)>.studio-editor{position:absolute;inset:12px auto 12px 12px;width:min(440px,calc(100% - 24px));z-index:35;padding:12px;overflow:auto;background:var(--surface,#fff);color:var(--ink);border:1px solid var(--line);border-radius:8px;box-shadow:0 8px 28px #10243c40}
+.quotation-structure-close{float:right;font-size:11px;padding:5px 8px}
+.editor-margin-layout .studio-editor>.pane-heading{display:flow-root}
+.quotation-margin-rail{position:absolute;z-index:20;width:176px;max-height:calc(100% - 24px);overflow:auto;display:flex;flex-direction:column;gap:9px;align-items:stretch;padding:0;background:transparent}
+.quotation-margin-rail[hidden]{display:none!important}
+.quotation-margin-rail .studio-primary-actions,.quotation-margin-rail .studio-heading-actions{display:flex;flex-direction:column;align-items:stretch;gap:9px}
+.quotation-margin-rail button,.quotation-margin-rail .button,.quotation-margin-rail summary{font:11px/1.4 'Segoe UI',Arial,sans-serif;white-space:normal;padding:8px 9px;text-align:left;min-height:32px;margin:0;max-width:100%}
+.quotation-margin-rail .studio-primary-actions>button:first-child{background:var(--accent,#183e6c);color:white;font-weight:700;border-color:var(--accent,#183e6c)}
+.quotation-margin-rail .export-start{margin:5px 0 0;border-top:1px solid var(--line)}
+.quotation-margin-rail #preview-status{max-width:none;font:10px/1.5 'Segoe UI',Arial,sans-serif;color:var(--muted);overflow-wrap:anywhere;padding:0 2px 4px}
+.quotation-margin-rail #preview-status.error{color:#a52626}
+.quotation-margin-rail .more-actions{padding:0!important;margin:0!important;border:0!important;background:transparent!important;border-radius:4px;min-width:0}
+.quotation-margin-rail .more-actions summary{border:1px solid var(--line);border-radius:4px;background:var(--surface,#fff);margin:0}
+.quotation-margin-rail .more-actions a,.quotation-margin-rail .more-actions form{padding:5px 0;background:transparent}
+.quotation-margin-rail .more-actions button{width:100%}
+#quotation-controls-dialog{width:min(420px,94vw);max-height:88dvh;overflow:auto;padding:14px;border:1px solid var(--line);border-radius:9px;background:var(--surface,#fff);color:var(--ink)}
+#quotation-controls-dialog::backdrop{background:#07172580}
+.quotation-controls-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.quotation-controls-heading h2{font-size:17px;margin:0}
+#quotation-controls-body .studio-primary-actions,#quotation-controls-body .studio-heading-actions{display:flex;flex-direction:column;align-items:stretch;gap:8px}
+#quotation-controls-body .studio-primary-actions{padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid var(--line)}
+#quotation-controls-body button,#quotation-controls-body .button{font-size:12px;padding:8px 10px;text-align:left}
+#quotation-controls-body #preview-status{max-width:none;font-size:11px}
+@media(max-width:1100px){body.portal-shell:has(.editor-margin-layout) main>header.portal-header{gap:8px;padding:4px 12px}.quotation-nav-context h1{font-size:15px!important}}
+@media(max-width:780px){body.portal-shell:has(.editor-margin-layout) main>header.portal-header{height:auto;min-height:56px;padding:5px 8px;gap:7px;flex-wrap:wrap}.quotation-nav-context{flex:1;justify-content:space-between;order:0}.quotation-nav-context h1{font-size:15px!important}body.portal-shell:has(.editor-margin-layout) .header-tools{order:1}body.portal-shell:has(.editor-margin-layout) .global-search{order:2}.editor-margin-layout .studio:not(.structure-collapsed)>.studio-editor{inset:6px;max-width:calc(100% - 12px);width:auto}.editor-margin-layout .studio:not(.structure-collapsed)>.studio-preview{display:block}}
+.editor-margin-layout .studio:not(.structure-collapsed)>.studio-editor{display:block!important}
+@media(max-width:780px){
+ body.portal-shell:has(.editor-margin-layout) main>header.portal-header{display:grid!important;grid-template-columns:40px minmax(0,1fr);align-items:center}
+ body.portal-shell:has(.editor-margin-layout) #mobile-navigation{grid-column:1;grid-row:1}
+ body.portal-shell:has(.editor-margin-layout) .quotation-nav-context{grid-column:2;grid-row:1;width:100%}
+ body.portal-shell:has(.editor-margin-layout) .header-tools{grid-column:1/-1;grid-row:2;justify-content:flex-end;margin:0}
+ body.portal-shell:has(.editor-margin-layout) .global-search{grid-column:1/-1;grid-row:3;min-width:0;width:100%;max-width:none}
+}
+
+body:has(.studio) .notice.quotation-save-toast{display:flex!important;position:fixed;z-index:120;top:64px;left:max(12px,calc(50% - 190px));width:380px;max-width:calc(100vw - 24px);align-items:center;justify-content:space-between;gap:12px;background:#e9f7ed;border:1px solid #84bc92;color:#16532d;padding:12px 14px;border-radius:7px;box-shadow:0 5px 20px #10243c30;font-size:13px}
+.quotation-save-toast button{padding:3px 6px;min-height:24px}

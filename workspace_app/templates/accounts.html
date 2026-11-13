@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static',filename='accounts.css') }}">
+<div class="accounts-page">
+  <div class="accounts-heading">
+    <div><p class="breadcrumbs">Administration</p><h1>Accounts</h1><p class="muted">Select a user to manage access or reset their password.</p></div>
+  </div>
+  <div class="accounts-metrics" aria-label="Account statistics">{% for title,value in kpis %}<span><strong>{{ value }}</strong> {{ title }}</span>{% endfor %}</div>
+  {% if error %}<div class="error" role="alert">{{ error }}</div>{% endif %}
+  <details class="account-create" {{ 'open' if error and request.form.get('action')=='create' }}>
+    <summary>＋ Create account</summary>
+    <form method="post">
+      <input type="hidden" name="csrf" value="{{ csrf() }}"><input type="hidden" name="action" value="create">
+      <div class="account-create-fields">
+        <label>Username<input name="username" value="{{ request.form.get('username','') if error and request.form.get('action')=='create' else '' }}" required autocomplete="off"></label>
+        <label>Initial password (12+ characters)<input name="password" type="password" minlength="12" maxlength="256" required autocomplete="new-password"></label>
+        <label>Role<select name="role">{% for role in roles %}<option {{ 'selected' if role==(request.form.get('role','Editor') if error and request.form.get('action')=='create' else 'Editor') }}>{{ role }}</option>{% endfor %}</select></label>
+      </div>
+      <button>Create account</button>
+    </form>
+  </details>
+  <section class="account-list" aria-label="User accounts">
+    <div class="account-list-heading"><h2>Users <span class="muted">({{ users|length }})</span></h2><span class="muted">Password and access changes revoke existing sessions.</span></div>
+    <div class="account-columns" aria-hidden="true"><span>Username</span><span>Role</span><span>Access</span><span></span></div>
+    {% for account in users %}
+    {% set selected_error=error and request.form.get('id')==account.id %}
+    <details class="account-row" name="selected-account" {{ 'open' if selected_error }}>
+      <summary aria-label="Manage {{ account.username }}">
+        <span class="account-name">{{ account.username }}{% if user and user.id==account.id %} <small class="muted">(you)</small>{% endif %}</span>
+        <span class="account-role">{{ account.role }}</span>
+        <span class="account-state {{ 'is-enabled' if account.active else 'is-disabled' }}">{{ 'Enabled' if account.active else 'Disabled' }}</span>
+        <span class="account-chevron" aria-hidden="true">›</span>
+      </summary>
+      <div class="account-controls">
+        <form method="post" class="account-access">
+          <input type="hidden" name="csrf" value="{{ csrf() }}"><input type="hidden" name="id" value="{{ account.id }}"><input type="hidden" name="action" value="access">
+          <label>Role<select aria-label="Role for {{ account.username }}" name="role">{% for role in roles %}<option {{ 'selected' if role==(request.form.get('role') if selected_error and request.form.get('action')=='access' else account.role) }}>{{ role }}</option>{% endfor %}</select></label>
+          <label class="account-enabled"><input type="checkbox" name="active" value="yes" {{ 'checked' if (request.form.get('active')=='yes' if selected_error and request.form.get('action')=='access' else account.active) }}> Enabled</label>
+          <button>Update access</button>
+        </form>
+        <form method="post" class="account-reset">
+          <input type="hidden" name="csrf" value="{{ csrf() }}"><input type="hidden" name="id" value="{{ account.id }}"><input type="hidden" name="action" value="reset">
+          <label>New password<input name="password" type="password" minlength="12" maxlength="256" autocomplete="new-password" required></label>
+          <button>Reset password</button>
+        </form>
+        <div class="account-delete"><a class="text-danger" href="/accounts/{{ account.id }}/delete">Delete account</a><span class="muted">Confirmation required. Linked records and history are retained.</span></div>
+      </div>
+    </details>
+    {% else %}<p class="muted account-empty">No accounts to display.</p>{% endfor %}
+  </section>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+.env
+*.sqlite*
+*.db
+*.zip
+data/
+attachments/
+backups/
+playwright-report/

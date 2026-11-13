@@ -1,0 +1,8 @@
+{% extends 'base.html' %}{% block content %}
+<p><a href="/accounts">Administration / Accounts</a></p>
+<section class="card"><h1>Delete account</h1><p>Account: <strong>{{ account.username }}</strong> · {{ account.role }}</p>
+<p>This removes the account from account management, permanently removes its sign-in access and revokes its sessions. Linked quotations, projects, attachments, comments and approval history stay in place with the original author's name.</p>
+<p>The stable identity and username remain reserved for historical attribution. Existing ownership is retained; reassign business records explicitly when needed. Replace this account on pending approvals before resubmitting them.</p>
+{% if error or blocked %}<div class="error" role="alert">{{ error or blocked }}</div>{% endif %}
+{% if not blocked %}<form method="post"><input type="hidden" name="csrf" value="{{ csrf() }}"><input type="hidden" name="account_name" value="{{ account.username }}"><label class="check-label"><input type="checkbox" name="confirm" value="yes" required> I confirm deletion of {{ account.username }}.</label><div class="toolbar"><button class="danger">Delete account {{ account.username }}</button><a class="button secondary" href="/accounts">Cancel</a></div></form>{% else %}<a class="button secondary" href="/accounts">Back to accounts</a>{% endif %}</section>
+{% endblock %}

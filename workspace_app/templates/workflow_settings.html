@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static',filename='admin_compact.css') }}">
+<div class="admin-compact">
+  <p class="breadcrumbs"><a href="/settings">Administration / Settings</a></p>
+  <h1>Approvers & email</h1>
+  <p class="admin-intro muted">Select a section to edit. Defaults apply to new quotations; existing roles and permissions stay unchanged.</p>
+  {% if error %}<div class="error" role="alert">{{ error }}</div>{% endif %}
+  <div class="admin-sections">
+    <details class="admin-section" name="workflow-setting" id="default-approvers" {{ 'open' if error and request.form.get('action')=='defaults' }}>
+      <summary><span><strong>Default approvers</strong><small>People and review stages for new quotations</small></span><span class="admin-summary-value">{{ defaults|length }} selected</span><span class="admin-chevron" aria-hidden="true">›</span></summary>
+      <div class="admin-section-body">
+        <form method="post" data-unsaved><input type="hidden" name="csrf" value="{{ csrf() }}"><input type="hidden" name="action" value="defaults">
+          {% include 'approver_selector.html' %}
+          <button>Save default approvers</button>
+          <p class="muted">Choose any number of distinct active staff, or remove all to leave defaults blank. Existing quotation selections are preserved.</p>
+        </form>
+      </div>
+    </details>
+    <details class="admin-section" name="workflow-setting" id="email-settings" {{ 'open' if error and request.form.get('action')=='smtp' }}>
+      <summary><span><strong>Optional notification email</strong><small>SMTP connection and portal links</small></span><span class="admin-summary-value">{{ 'Enabled' if smtp.enabled else 'Disabled' }}</span><span class="admin-chevron" aria-hidden="true">›</span></summary>
+      <div class="admin-section-body">
+        <form method="post"><input type="hidden" name="csrf" value="{{ csrf() }}"><input type="hidden" name="action" value="smtp">
+          <label class="check-label"><input type="checkbox" name="enabled" value="yes" {{ 'checked' if smtp.enabled }}> Enable SMTP notifications</label>
+          <div class="admin-fields">
+          {% for key,label in [('host','SMTP host'),('port','SMTP port'),('sender','From email'),('username','SMTP username (blank for relay)'),('password_env','Password environment variable name'),('base_url','Explicit portal base URL')] %}<label>{{ label }}<input name="{{ key }}" value="{{ smtp[key] }}"></label>{% endfor %}
+          <label>SMTP security<select name="security" aria-label="SMTP security"><option value="starttls" {{ 'selected' if smtp.security=='starttls' }}>STARTTLS</option><option value="ssl" {{ 'selected' if smtp.security=='ssl' }}>TLS / SSL</option><option value="none" {{ 'selected' if smtp.security=='none' }}>None (no TLS)</option></select></label>
+          </div>
+          <p class="muted">None uses ordinary SMTP with your configured hostname/IP and port. A blank username supports an IP-authorized relay.</p>
+          <button>Save email settings</button>
+        </form>
+        <details class="admin-help"><summary>Password, network access & delivery notes</summary><p>Set the password in the Windows service environment, never in a workbook, repository or database setting. Email is disabled by default. Links require normal sign-in and access; recipients need internal network/VPN access. Delivery failures do not undo portal actions. No approval actions run from email links.</p></details>
+      </div>
+    </details>
+    <details class="admin-section" name="workflow-setting" id="notification-addresses" {{ 'open' if error and request.form.get('action')=='recipient' }}>
+      <summary><span><strong>Account notification addresses</strong><small>Select a user to edit their notification email</small></span><span class="admin-summary-value">{{ users|length }} accounts</span><span class="admin-chevron" aria-hidden="true">›</span></summary>
+      <div class="admin-recipient-list">
+      {% for u in users %}{% set r=recipients.get(u.id) %}{% set selected_error=error and request.form.get('action')=='recipient' and request.form.get('user_id')==u.id %}
+        <details class="admin-recipient" name="notification-account" {{ 'open' if selected_error }}>
+          <summary><strong>{{ u.username }}</strong><span class="muted">{{ r.email if r and r.email else 'No email configured' }}</span><span class="admin-summary-value">{{ 'Enabled' if r and r.enabled else 'Disabled' }}</span><span class="admin-chevron" aria-hidden="true">›</span></summary>
+          <form method="post" class="recipient-row"><input type="hidden" name="csrf" value="{{ csrf() }}"><input type="hidden" name="action" value="recipient"><input type="hidden" name="user_id" value="{{ u.id }}">
+            <label>Email address<input type="email" aria-label="Email for {{ u.username }}" name="email" value="{{ request.form.get('email','') if selected_error else (r.email if r else '') }}" placeholder="Account email"></label>
+            <label class="check-label"><input type="checkbox" name="recipient_enabled" value="yes" {{ 'checked' if (request.form.get('recipient_enabled')=='yes' if selected_error else r and r.enabled) }}> Email enabled</label><button class="secondary">Save address</button>
+          </form>
+        </details>
+      {% else %}<p class="muted admin-empty">No accounts to display.</p>{% endfor %}
+      </div>
+    </details>
+    <details class="admin-section" name="workflow-setting" id="email-failures" {{ 'open' if (failures and not error) or (error and request.form.get('action')=='retry') }}>
+      <summary><span><strong>Email delivery failures</strong><small>{{ 'Review failures before retrying delivery' if failures else 'No failed email deliveries' }}</small></span><span class="admin-summary-value {{ 'text-danger' if failures }}">{{ failures|length }} failed</span><span class="admin-chevron" aria-hidden="true">›</span></summary>
+      <div class="admin-section-body"><p class="muted">After a disconnect, delivery may be uncertain. Check receipt before a manual retry.</p>
+        {% for f in failures %}<div class="notification-row"><p>{{ f.username }} · {{ f.kind }} · {{ f.at }}<small>{{ f.error }}</small></p><form method="post"><input type="hidden" name="csrf" value="{{ csrf() }}"><input type="hidden" name="action" value="retry"><input type="hidden" name="notification_id" value="{{ f.notification_id }}"><button class="secondary">Retry delivery</button></form></div>{% else %}<p>No failed email deliveries.</p>{% endfor %}
+      </div>
+    </details>
+  </div>
+</div>
+{% endblock %}

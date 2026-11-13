@@ -1,0 +1,11 @@
+{% macro value(v) %}{{ dollars(v) }}{% endmacro %}
+{% if doc.discount.billing in ['monthly','both'] %}
+<tr><th colspan="{{ 3 if doc.show_12_month else 2 }}">Original monthly fee</th><td>{{ value(c.regular) }}</td></tr>
+<tr class="summary-discount"><th colspan="{{ 3 if doc.show_12_month else 2 }}">Discount per promotional month{{ ' · first '+c.discount_extra_months+' months (rounding)' if c.discount_extra_months|int else '' }}</th><td>−{{ value(c.discount) }}</td></tr>
+<tr class="summary-regular"><th colspan="{{ 3 if doc.show_12_month else 2 }}">Total monthly fee{{ ' · promotional' if c.discount_months|int < doc.contract_months else '' }}{{ ' · first '+c.discount_extra_months+' months' if c.discount_extra_months|int else ' · '+c.discount_months+' months' }}</th><td>{{ value(c.discounted) }}</td></tr>
+{% if c.discount_extra_months|int %}<tr class="summary-regular"><th colspan="{{ 3 if doc.show_12_month else 2 }}">Total monthly fee · months {{ c.discount_extra_months|int+1 }}–{{ c.discount_months }}</th><td>{{ value(c.discounted_final) }}</td></tr>{% endif %}
+{% if c.discount_months|int < doc.contract_months %}<tr class="summary-regular"><th colspan="{{ 3 if doc.show_12_month else 2 }}">Regular monthly fee afterward · month {{ c.discount_months|int+1 }} onward</th><td>{{ value(c.regular) }}</td></tr>{% endif %}
+{% else %}<tr class="summary-regular"><th colspan="{{ 3 if doc.show_12_month else 2 }}">Total monthly fee</th><td>{{ value(c.regular) }}</td></tr>{% endif %}
+{% if doc.discount.billing in ['one_time','both'] %}<tr><th colspan="{{ 3 if doc.show_12_month else 2 }}">Original one-time fee</th><td>{{ value(c.original_one_time) }}</td></tr><tr class="summary-discount"><th colspan="{{ 3 if doc.show_12_month else 2 }}">One-time discount</th><td>−{{ value(c.one_time_discount) }}</td></tr>{% endif %}
+<tr class="summary-one_time"><th colspan="{{ 3 if doc.show_12_month else 2 }}">Total one-time fee</th><td>{{ value(c.one_time) }}</td></tr>
+{% if discount_text %}<tr><td colspan="{{ 4 if doc.show_12_month else 3 }}" class="discount-description">{{ discount_text }}</td></tr>{% endif %}

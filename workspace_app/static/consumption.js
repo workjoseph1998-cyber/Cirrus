@@ -1,0 +1,6 @@
+'use strict';
+(() => {
+const data=JSON.parse(document.getElementById('initial-consumption').textContent),form=document.getElementById('consumption-form');
+function update(){let total=0;for(const r of data.rows){const tr=document.querySelector('[data-consumption-row="'+r.id+'"]');r.actual=tr.querySelector('[data-actual]').value;tr.classList.toggle('over-consumption',Number(r.actual)>Number(r.quantity));let qty=Number(r.basis==='fixed'?r.quantity:r.actual);if(r.method==='fixed')qty=qty>0?1:0;const charge=Math.round((qty*Number(r.unit_price)*(1-Number(r.discount)/100)+Number.EPSILON)*100)/100;total+=charge;tr.querySelector('[data-charge]').textContent=charge.toFixed(2)+' '+data.currency;}document.getElementById('consumption-total').textContent=total.toFixed(2)+' '+data.currency;document.getElementById('consumption-status').textContent='Preview · save to calculate and store exact charges.';}
+form.querySelectorAll('[data-actual]').forEach(n=>n.addEventListener('input',update));form.addEventListener('submit',()=>{const actuals={};for(const n of form.querySelectorAll('[data-actual]'))actuals[n.dataset.actual]=n.value;document.getElementById('consumption-data').value=JSON.stringify({actuals,notes:document.getElementById('consumption-notes').value});});
+})();

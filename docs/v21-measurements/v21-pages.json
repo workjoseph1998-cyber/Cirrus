@@ -1,0 +1,49 @@
+{
+  "fixture": "300 draft quotations / 30 customers; five warm authenticated Flask samples per page; one cold sample excluded; temporary SQLite; no real emails",
+  "pages": {
+    "/": {
+      "median_ms": 237.24,
+      "samples": [
+        216.1,
+        237.86,
+        237.52,
+        234.61,
+        237.24
+      ],
+      "response_bytes": 9023
+    },
+    "/list/quote": {
+      "median_ms": 644.89,
+      "samples": [
+        652.49,
+        697.44,
+        636.22,
+        644.89,
+        628.86
+      ],
+      "response_bytes": 159740
+    },
+    "/customers": {
+      "median_ms": 195.47,
+      "samples": [
+        192.86,
+        208.82,
+        195.47,
+        205.0,
+        188.64
+      ],
+      "response_bytes": 11131
+    },
+    "/customers/:id": {
+      "median_ms": 179.84,
+      "samples": [
+        173.15,
+        204.27,
+        207.43,
+        179.84,
+        165.5
+      ],
+      "response_bytes": 13517
+    }
+  }
+}

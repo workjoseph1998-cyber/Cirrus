@@ -1,0 +1,7 @@
+{
+  "renderer": "system Chromium via unchanged application render_pdf",
+  "fixture": "quotation_fixture.fixture; synthetic data only",
+  "v20_pdf_bytes": 56811,
+  "v21_pdf_bytes": 56811,
+  "pdftotext_layout_exact_match": true
+}

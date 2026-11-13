@@ -1,0 +1,531 @@
+{
+  "format": "joseph-workspace",
+  "version": 1,
+  "records": [
+    {
+      "id": "50273afb-7825-585a-8c7b-9c840762ec3b",
+      "kind": "category",
+      "data": {
+        "name": "Presales",
+        "parent": ""
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "b08f0bb9-05d1-5c74-a589-c3f3db62a007",
+      "kind": "category",
+      "data": {
+        "name": "Nutanix",
+        "parent": ""
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "5e9274e4-ebdc-54e2-b999-6b978b68f1f0",
+      "kind": "category",
+      "data": {
+        "name": "HPE",
+        "parent": ""
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "f3d926b8-c7b8-50ee-a831-508f8da7a4c8",
+      "kind": "category",
+      "data": {
+        "name": "Fortinet",
+        "parent": ""
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "7fb0685e-3fe1-56b3-919f-86ae3bd7eb06",
+      "kind": "category",
+      "data": {
+        "name": "Veeam",
+        "parent": ""
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "97dddf9c-2c1a-5229-8190-cb8204aec857",
+      "kind": "category",
+      "data": {
+        "name": "CrowdStrike",
+        "parent": ""
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "dca7aac9-0a69-5a9d-a7ad-6ccdfdd40326",
+      "kind": "category",
+      "data": {
+        "name": "RKE2 / Kubernetes",
+        "parent": ""
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "f85b8608-f8ba-5cbc-917a-da44bb8b0d0e",
+      "kind": "category",
+      "data": {
+        "name": "Microsoft / Azure",
+        "parent": ""
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "21b6b0e2-4979-5e2c-bfc4-a8767c117c85",
+      "kind": "category",
+      "data": {
+        "name": "Personal",
+        "parent": ""
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "1f320b4a-5d3a-5345-8846-16991509628a",
+      "kind": "category",
+      "data": {
+        "name": "Gym",
+        "parent": "21b6b0e2-4979-5e2c-bfc4-a8767c117c85"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "2e49fb2a-fe9f-5bcf-a1e5-bd52655bbd7a",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-001",
+        "name": "[Sample] NCI licensing",
+        "vendor": "Nutanix",
+        "category": "Illustrative starter",
+        "description": "NCI licensing \u2014 specify scope and entitlement before quoting.",
+        "unit": "core",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "042b4d61-6ee1-5f1c-b237-1d29219d33f4",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-002",
+        "name": "[Sample] NCI implementation",
+        "vendor": "Nutanix",
+        "category": "Illustrative starter",
+        "description": "NCI implementation \u2014 specify scope and entitlement before quoting.",
+        "unit": "day",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "9c1d4fb8-5826-5d05-b5cf-22274dd1b28a",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-003",
+        "name": "[Sample] Server hardware",
+        "vendor": "HPE",
+        "category": "Illustrative starter",
+        "description": "Server hardware \u2014 specify scope and entitlement before quoting.",
+        "unit": "device",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "eb0f3d3d-54a1-5185-87b8-d5dd195873c0",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-004",
+        "name": "[Sample] Server deployment",
+        "vendor": "HPE",
+        "category": "Illustrative starter",
+        "description": "Server deployment \u2014 specify scope and entitlement before quoting.",
+        "unit": "day",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "c0641dfc-bf72-5665-a39e-c6bdcdf8c4c3",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-005",
+        "name": "[Sample] Firewall hardware",
+        "vendor": "Fortinet",
+        "category": "Illustrative starter",
+        "description": "Firewall hardware \u2014 specify scope and entitlement before quoting.",
+        "unit": "device",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "afa4cb6f-5048-5956-8908-8e07a35c0783",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-006",
+        "name": "[Sample] Switch hardware",
+        "vendor": "Fortinet",
+        "category": "Illustrative starter",
+        "description": "Switch hardware \u2014 specify scope and entitlement before quoting.",
+        "unit": "device",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "9d3b7558-fc75-5cf9-9478-efb1e9e26330",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-007",
+        "name": "[Sample] Network configuration",
+        "vendor": "Fortinet",
+        "category": "Illustrative starter",
+        "description": "Network configuration \u2014 specify scope and entitlement before quoting.",
+        "unit": "day",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "c3b1e9c8-7660-54ca-b421-c740687048c3",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-008",
+        "name": "[Sample] Backup licensing",
+        "vendor": "Veeam",
+        "category": "Illustrative starter",
+        "description": "Backup licensing \u2014 specify scope and entitlement before quoting.",
+        "unit": "VM",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "bad6b8ff-595c-5523-8a5f-8a6b00f24f78",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-009",
+        "name": "[Sample] Backup implementation",
+        "vendor": "Veeam",
+        "category": "Illustrative starter",
+        "description": "Backup implementation \u2014 specify scope and entitlement before quoting.",
+        "unit": "day",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "f2364368-09c4-5d9f-b9e2-0e148806abcd",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-010",
+        "name": "[Sample] Endpoint subscription",
+        "vendor": "CrowdStrike",
+        "category": "Illustrative starter",
+        "description": "Endpoint subscription \u2014 specify scope and entitlement before quoting.",
+        "unit": "agent",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "2b0d8214-6dec-5b37-9714-7ae1586559cc",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-011",
+        "name": "[Sample] SIEM collection",
+        "vendor": "Generic",
+        "category": "Illustrative starter",
+        "description": "SIEM collection \u2014 specify scope and entitlement before quoting.",
+        "unit": "device",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "12598cd5-17fe-55f2-841a-b884b7869893",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-012",
+        "name": "[Sample] SOC services",
+        "vendor": "Generic",
+        "category": "Illustrative starter",
+        "description": "SOC services \u2014 specify scope and entitlement before quoting.",
+        "unit": "month",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "28ec279a-08b1-5acf-8de0-eb68d590d1cd",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-013",
+        "name": "[Sample] RDS CAL licensing",
+        "vendor": "Microsoft",
+        "category": "Illustrative starter",
+        "description": "RDS CAL licensing \u2014 specify scope and entitlement before quoting.",
+        "unit": "user",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "d44b2e4f-a06e-5894-944f-844292a09a2e",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-014",
+        "name": "[Sample] Active Directory services",
+        "vendor": "Microsoft",
+        "category": "Illustrative starter",
+        "description": "Active Directory services \u2014 specify scope and entitlement before quoting.",
+        "unit": "day",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "b213f6d9-71c5-5b94-ad01-38760372b312",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-015",
+        "name": "[Sample] Azure VM services",
+        "vendor": "Microsoft",
+        "category": "Illustrative starter",
+        "description": "Azure VM services \u2014 specify scope and entitlement before quoting.",
+        "unit": "month",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "1e801f55-7879-543c-869e-6175f67fc94d",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-016",
+        "name": "[Sample] Domain registration",
+        "vendor": "Generic",
+        "category": "Illustrative starter",
+        "description": "Domain registration \u2014 specify scope and entitlement before quoting.",
+        "unit": "year",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "f0bcf288-8e55-57be-9496-7bd9bea1a91d",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-017",
+        "name": "[Sample] Storage hardware",
+        "vendor": "Lenovo",
+        "category": "Illustrative starter",
+        "description": "Storage hardware \u2014 specify scope and entitlement before quoting.",
+        "unit": "device",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "ea721a16-d33d-5a31-b113-a95d359f52bc",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-018",
+        "name": "[Sample] Migration",
+        "vendor": "Generic",
+        "category": "Illustrative starter",
+        "description": "Migration \u2014 specify scope and entitlement before quoting.",
+        "unit": "day",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "10a1a158-45c1-5331-b3c4-331779d3a2c5",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-019",
+        "name": "[Sample] Installation",
+        "vendor": "Generic",
+        "category": "Illustrative starter",
+        "description": "Installation \u2014 specify scope and entitlement before quoting.",
+        "unit": "hour",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "519baef2-d7ec-5585-b76e-6410529490d3",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-020",
+        "name": "[Sample] Professional services",
+        "vendor": "Generic",
+        "category": "Illustrative starter",
+        "description": "Professional services \u2014 specify scope and entitlement before quoting.",
+        "unit": "day",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    },
+    {
+      "id": "8228f53d-0d01-52ba-9a1d-65bdc2454e32",
+      "kind": "catalog",
+      "data": {
+        "code": "SAMPLE-021",
+        "name": "[Sample] Support",
+        "vendor": "Generic",
+        "category": "Illustrative starter",
+        "description": "Support \u2014 specify scope and entitlement before quoting.",
+        "unit": "year",
+        "cost": "",
+        "price": "",
+        "currency": "USD",
+        "duration": "",
+        "internal_notes": "Illustrative example only. Not an actual vendor SKU or market price.",
+        "status": "Active"
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    }
+  ],
+  "settings": {
+    "company": "Joseph Workspace",
+    "payment_terms": "",
+    "delivery_terms": ""
+  }
+}

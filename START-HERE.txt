@@ -1,0 +1,31 @@
+CIRRUS WORKPLACE V21 - COMPLETE LIVE VERSION
+SAME SERVER. SAME IIS ADDRESS. EXISTING LOGIN AND DATA.
+
+1. Keep Version 20 STOPPED, including its service automatic restart.
+2. Extract this ZIP into a separate V21 application folder on the SAME server.
+   Do not extract over Version 20.
+3. Double-click setup.bat. Setup detects your V20 data/configuration and
+   COPIES the database, attachments, customer documents and exports into
+   separate V21 live folders. It upgrades only the copy.
+   If it cannot locate the V20 data folder, it asks for the folder containing
+   workspace.sqlite. Do not choose an old V21 test folder.
+4. Double-click start.bat, then open your EXISTING IIS workplace address.
+5. Sign in with your EXISTING username/password. No empty test account is used.
+
+Check the sidebar footer: Version 21 / Live / Build number.
+Open "What's new in V21" in the sidebar or dashboard to find all additions.
+
+Live V21 settings and storage are under:
+  %LOCALAPPDATA%\CirrusWorkplaceV21Live
+Run setup/start under the same Windows account. Earlier V21 test folders
+are not reused. Rerunning setup preserves an existing V21 live copy.
+
+Existing SMTP settings are retained and real sending is allowed in live mode.
+SMTP passwords remain in the original server environment, not in this ZIP.
+If the old service alone supplied the password, its environment must also be
+available to the Windows account starting V21.
+
+ROLLBACK: Finish work, run stop-v21.bat, verify port 8000 is free, then start
+Version 20 with its ORIGINAL launcher/service. No reinstall is needed.
+V20's database/documents stay unchanged. Work entered in V21 does NOT sync
+back to V20; a rollback returns you to the V20 snapshot you stopped.

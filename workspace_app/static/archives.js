@@ -1,0 +1,6 @@
+'use strict';
+(() => {
+const form=document.getElementById('bulk-quotation-form'),checks=[...document.querySelectorAll('[data-family-select]')],page=document.getElementById('select-page'),mode=form.elements.selection_mode,all=document.getElementById('select-matching'),label=document.getElementById('selection-count');
+function update(){const selected=checks.filter(n=>n.checked),matching=mode.value==='matching';label.textContent=(matching?all.dataset.families:selected.length)+' families · '+(matching?all.dataset.revisions:selected.reduce((s,n)=>s+Number(n.dataset.revisions),0))+' revisions selected'+(matching?' · all matching filters':'');page.checked=checks.length>0&&selected.length===checks.length;page.indeterminate=selected.length>0&&selected.length<checks.length;form.querySelectorAll('button[name=action]').forEach(n=>n.disabled=!matching&&!selected.length);}
+checks.forEach(n=>n.addEventListener('change',()=>{mode.value='individual';update();}));page.addEventListener('change',()=>{mode.value='individual';checks.forEach(n=>n.checked=page.checked);update();});all.addEventListener('click',()=>{mode.value='matching';checks.forEach(n=>n.checked=true);update();});document.getElementById('clear-selection').addEventListener('click',()=>{mode.value='individual';checks.forEach(n=>n.checked=false);update();});update();
+})();

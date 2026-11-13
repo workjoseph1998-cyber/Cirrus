@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block content %}<a href="/customers/{{ folder_customer.id }}">← Customer profile</a><h1>Quotation folder · {{ folder_customer.data.name }}</h1><section class="card">{% include 'customer_export_folder_fields.html' %}</section>{% endblock %}

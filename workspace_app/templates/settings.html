@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static',filename='admin_compact.css') }}">
+<div class="admin-compact">
+  <p class="breadcrumbs">Administration</p><h1>Settings & backups</h1>
+  <p class="admin-intro muted">Select a section to manage workspace defaults, data transfers or backups.</p>
+  <p><a href="/reports/settings">Reports folder settings →</a></p><nav class="admin-shortcuts" aria-label="Administration tools"><a href="/accounts">Accounts</a><a href="/administration/workflow">Approvers & email</a><a href="/administration/customer-documents">Customer document storage</a><a href="/company-template">Company quotation template</a><a href="/automation/settings">PDF folders & automation</a></nav>
+  <div class="admin-sections">
+    <details class="admin-section" name="workspace-setting" id="branding-settings">
+      <summary><span><strong>Branding & default terms</strong><small>Company name, payment and delivery terms</small></span><span class="admin-summary-value">{{ cfg.company }}</span><span class="admin-chevron" aria-hidden="true">›</span></summary>
+      <div class="admin-section-body"><form method="post"><input type="hidden" name="csrf" value="{{ csrf() }}">
+        <label>Company / display name<textarea name="company" rows="1" aria-label="Company / display name">{{ cfg.company }}</textarea></label>
+        <div class="admin-fields">{% for k,title in [('payment_terms','Default payment terms'),('delivery_terms','Default delivery terms')] %}<label>{{ title }}<textarea name="{{ k }}" rows="3" aria-label="{{ title }}">{{ cfg[k] }}</textarea></label>{% endfor %}</div>
+        <button>Save settings</button>
+      </form><p class="muted">Defaults are copied into new quotations. Existing quotations keep their terms.</p></div>
+    </details>
+    <details class="admin-section" name="workspace-setting" id="portability-settings">
+      <summary><span><strong>Portability</strong><small>Export workspace JSON or preview a JSON import</small></span><span class="admin-summary-value">Import / Export</span><span class="admin-chevron" aria-hidden="true">›</span></summary>
+      <div class="admin-section-body">
+        <p>Export records visible to your account and shared settings. Personal records of other users are excluded even for administrators. Full-instance offline backups contain all users’ data. Attachments are included in full backups, not JSON exports.</p>
+        <a class="button secondary" href="/export">Export workspace JSON</a>
+        <form method="post" action="/import" enctype="multipart/form-data" class="admin-import"><input type="hidden" name="csrf" value="{{ csrf() }}"><label>Import JSON<input type="file" name="file" accept=".json" required></label><button>Preview import</button></form>
+        <p class="muted">Preview validates every record. Identical IDs are skipped; conflicting IDs are rejected. Nothing is overwritten.</p>
+      </div>
+    </details>
+    <details class="admin-section" name="workspace-setting" id="category-settings">
+      <summary><span><strong>Categories & service catalog</strong><small>Organize categories or review catalog replacement</small></span><span class="admin-chevron" aria-hidden="true">›</span></summary>
+      <div class="admin-section-body"><div class="admin-inline-links"><a href="/list/category">Manage categories & subcategories →</a><a href="/catalog-replacement">Replace service catalog once →</a></div><p>Create your own categories or import the optional starter examples. A fresh workspace contains no demo records.</p></div>
+    </details>
+    <details class="admin-section" name="workspace-setting" id="backup-settings">
+      <summary><span><strong>Full backup & restore</strong><small>Download a backup, configure schedules or view restore instructions</small></span><span class="admin-summary-value">Administrators only</span><span class="admin-chevron" aria-hidden="true">›</span></summary>
+      <div class="admin-section-body">
+        <div class="admin-backup-actions"><form method="post" action="/backups/download"><input type="hidden" name="csrf" value="{{ csrf() }}"><button>Download full backup</button></form><a href="/automation/settings">Automatic PDF exports, daily backups & retention →</a></div>
+        <p>The download uses SQLite’s backup API and a write barrier to capture all referenced attachments consistently while the app is running. Contains private records and account data; administrators only.</p>
+        <p>Data directory: <code>{{ data_dir }}</code></p>
+        <p class="admin-backup-warning"><strong>Customer Documents use separate external storage and are not included in database/attachment backups.</strong> <a href="/administration/customer-documents">External-document backup procedure →</a></p>
+        <details class="admin-help"><summary>Offline backup & restore instructions</summary><p>Stop the server with Ctrl+C first. From the application directory:</p><pre>.venv\Scripts\python scripts\backup.py backup C:\Backups\cirrus-workplace.zip
+.venv\Scripts\python scripts\backup.py restore C:\Backups\cirrus-workplace.zip --target C:\CirrusRestored</pre><p>Backups include SQLite, settings and attachments with integrity hashes. Restore only creates a new directory; it never overwrites existing data. Set CIRRUS_DATA_DIR to the restored directory, then restart.</p></details>
+        <details class="admin-help"><summary>Retained consumption handover · administrators only</summary><p>Consumption is retired. This archive contains retained monthly snapshots, histories, original and staged workbooks, and their customer/project identities. It does not delete or change them.</p><form method="post" action="/administration/consumption-handover"><input type="hidden" name="csrf" value="{{ csrf() }}"><button>Export retained consumption for handover</button></form></details>
+      </div>
+    </details>
+  </div>
+  <p class="admin-storage-note muted">External Customer Documents require a separate backup. <a href="/administration/customer-documents">View storage and backup instructions →</a></p>
+</div>
+{% endblock %}

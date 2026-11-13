@@ -1,0 +1,8 @@
+{% extends 'base.html' %}{% block content %}
+<link rel="stylesheet" href="/static/quotation_setup.css">
+<section class="default-setup"><div class="catalog-heading"><div><a href="/list/catalog">← Service Catalog</a><h1>Default quotation setup</h1></div><a class="button secondary" href="/new/catalog">Add catalog service</a></div>
+<p class="muted">Arrange the structure and choose included services. Quantities, prices, billing and comments come from Service Catalog when each new quotation is created. Saved quotations are unchanged.</p>
+{% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+<form method="post" id="default-setup-form"><input type="hidden" name="csrf" value="{{ csrf() }}"><input type="hidden" name="base_hash" value="{{ base_hash }}"><input type="hidden" name="setup" id="setup-data"><div class="setup-actions"><button type="button" id="add-setup-category">+ Environment / standalone category</button><button class="button">Save default setup</button></div><div id="setup-sections"></div><div class="setup-actions"><button class="button">Save default setup</button></div></form>
+<script id="initial-setup" type="application/json">{{ setup|tojson }}</script><script id="setup-catalogs" type="application/json">{{ catalogs|tojson }}</script><script defer src="/static/quotation_setup.js"></script>
+</section>{% endblock %}

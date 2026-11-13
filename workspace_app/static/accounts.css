@@ -1,0 +1,43 @@
+/* Accounts page only: existing account actions and other screens are unchanged. */
+.accounts-page{max-width:1200px;margin:0 auto}
+.accounts-heading p{margin:4px 0 12px;font-size:12px}
+.accounts-heading .breadcrumbs{margin-bottom:2px}
+.accounts-metrics{display:flex;flex-wrap:wrap;gap:8px 22px;margin:12px 0 18px;color:var(--muted);font-size:11px}
+.accounts-metrics strong{color:var(--ink);font-size:14px;margin-right:3px}
+.accounts-page .account-create,.accounts-page .account-list{border:1px solid var(--line);border-radius:9px;background:var(--surface);overflow:hidden}
+.accounts-page .account-create{margin-bottom:16px}
+.account-create>summary{padding:11px 15px;font-size:12px;font-weight:650;cursor:pointer;color:var(--accent)}
+.account-create>form{padding:2px 15px 15px;border-top:1px solid var(--line)}
+.account-create-fields{display:grid;grid-template-columns:1fr 1fr minmax(130px,.6fr);gap:12px}
+.account-list-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 15px}
+.accounts-page .account-list-heading h2{margin:0;font-size:14px}
+.account-list-heading>span{font-size:11px}
+.account-columns,.account-row>summary{display:grid;grid-template-columns:minmax(120px,1fr) minmax(110px,.6fr) 90px 16px;gap:12px;align-items:center}
+.account-columns{padding:8px 15px;background:var(--surface-alt);color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.5px}
+.accounts-page .account-row{margin:0;padding:0;border:0;border-top:1px solid var(--line);border-radius:0;background:transparent}
+.account-row>summary{padding:11px 15px;list-style:none;cursor:pointer;font-size:12px}
+.account-row>summary::-webkit-details-marker{display:none}
+.account-row>summary:hover,.account-row[open]>summary{background:var(--hover)}
+.account-name{font-weight:650;overflow-wrap:anywhere}
+.accounts-page .account-name small{display:inline}
+.account-role{color:var(--muted);overflow-wrap:anywhere}
+.account-state{font-size:10px;justify-self:start;padding:3px 7px;border-radius:5px}
+.account-state.is-enabled{background:var(--good-bg);color:var(--good)}
+.account-state.is-disabled{background:var(--surface-alt);color:var(--muted);border:1px solid var(--line)}
+.account-chevron{font-size:20px;line-height:1;justify-self:end;transition:transform .12s}
+.account-row[open] .account-chevron{transform:rotate(90deg)}
+.account-controls{padding:12px 15px 14px;display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;border-top:1px solid var(--line)}
+.account-access,.account-reset{display:flex;gap:10px;align-items:end;flex-wrap:wrap;margin:0}
+.accounts-page label{font-size:11px;margin:0;min-width:0}
+.account-access>label:first-of-type,.account-reset>label{flex:1 1 140px}
+.accounts-page input:not([type=checkbox]),.accounts-page select{font-size:12px;padding:8px 10px;min-height:35px;margin:5px 0 0}
+.accounts-page .account-enabled{display:flex;align-items:center;gap:6px;min-height:35px;margin:0;white-space:nowrap}
+.account-enabled input{width:15px;height:15px;margin:0}
+.accounts-page button{font-size:11px;padding:8px 11px;min-height:35px;margin:0}
+.account-create>form>button{margin-top:12px}
+.account-delete{grid-column:1/-1;display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:11px}
+.account-empty{padding:12px 15px}
+@media(max-width:780px){.account-list-heading{align-items:start;flex-direction:column;gap:5px}.account-controls{grid-template-columns:1fr;gap:16px}.account-create-fields{grid-template-columns:1fr}.account-columns,.account-row>summary{grid-template-columns:minmax(80px,1fr) minmax(80px,.8fr) 65px 10px;gap:8px}.account-row>summary,.account-columns{padding-left:10px;padding-right:10px}.account-state{padding:3px 5px;font-size:9px}.account-role{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.account-chevron{transition:none}}
+
+[data-theme=dark] .accounts-page .account-delete a{color:#ffaaaa}

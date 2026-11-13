@@ -1,0 +1,16 @@
+{
+  "passed": [
+    "desktop dashboard",
+    "clipboard link",
+    "favorite save",
+    "internal note save",
+    "dirty and clean navigation",
+    "customer activity",
+    "dark mode",
+    "mobile shortcuts without page overflow",
+    "existing mobile editor",
+    "pre-send panel",
+    "Ctrl+K search"
+  ],
+  "javascript_errors": []
+}

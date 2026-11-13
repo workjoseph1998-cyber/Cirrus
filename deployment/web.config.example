@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Replace __WAITRESS_PORT__ and configure ARR preserveHostHeader=true at server level.
+     Put ONLY the configured web.config in a dedicated IIS proxy folder, never in the data folder. -->
+<configuration>
+  <system.webServer>
+    <security><requestFiltering><requestLimits maxAllowedContentLength="12582912" /></requestFiltering></security>
+    <rewrite>
+      <rules>
+        <rule name="Cirrus Workplace local Waitress" stopProcessing="true">
+          <match url="(.*)" />
+          <conditions><add input="{HTTPS}" pattern="^ON$" /></conditions>
+          <serverVariables>
+            <set name="HTTP_X_FORWARDED_PROTO" value="https" />
+            <set name="HTTP_X_FORWARDED_FOR" value="{REMOTE_ADDR}" />
+          </serverVariables>
+          <action type="Rewrite" url="http://127.0.0.1:__WAITRESS_PORT__/{R:1}" appendQueryString="true" />
+        </rule>
+      </rules>
+    </rewrite>
+  </system.webServer>
+</configuration>

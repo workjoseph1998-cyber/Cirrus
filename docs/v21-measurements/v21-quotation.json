@@ -1,0 +1,40 @@
+{
+  "source_version": "V21",
+  "fixture": "100 quotations; 1 customer; five warm Flask requests; synthetic SQLite; SQL trace includes ACLs; saves change title",
+  "results": {
+    "open": {
+      "median_ms": 59.88,
+      "samples": [
+        60.23,
+        38.62,
+        59.88,
+        61.04,
+        38.51
+      ],
+      "sql_statements": [
+        279,
+        279,
+        279,
+        279,
+        279
+      ]
+    },
+    "save": {
+      "median_ms": 46.77,
+      "samples": [
+        63.39,
+        44.03,
+        43.91,
+        74.64,
+        46.77
+      ],
+      "sql_statements": [
+        82,
+        82,
+        82,
+        82,
+        82
+      ]
+    }
+  }
+}

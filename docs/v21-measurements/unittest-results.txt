@@ -1,0 +1,17 @@
+........................................................................................................................./workspace/cirrus-workplace-v21/tests/test_v11.py:51: ResourceWarning: unclosed file <_io.BufferedReader name='/tmp/tmp95js9qt2/data/attachments/retained.xlsx'>
+  self.assertEqual(self.c.get('/attachment/retained-workbook').data,data.getvalue())
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+........................................................./workspace/cirrus-workplace-v21/tests/test_v15.py:165: ResourceWarning: unclosed file <_io.BufferedReader name=4>
+  self.assertEqual(self.c.get(self.url+'/'+self.find('REPORT.PDF')['id']+'/download').data,b'replacement')
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+......./workspace/cirrus-workplace-v21/.venv/lib/python3.12/site-packages/werkzeug/routing/rules.py:836: ResourceWarning: unclosed file <_io.BufferedRandom name=3>
+  code = compile(module, "<werkzeug routing>", "exec")
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/workspace/cirrus-workplace-v21/tests/test_v15.py:242: ResourceWarning: unclosed file <_io.BufferedReader name=4>
+  self.assertEqual(client.get(self.url+'/'+item['id']+'/download').data,b'first version');self.assertEqual(before,self.path(item))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+...............................................................................................................
+----------------------------------------------------------------------
+Ran 296 tests in 213.890s
+
+OK

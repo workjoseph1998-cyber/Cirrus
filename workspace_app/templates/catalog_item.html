@@ -1,0 +1,26 @@
+{% extends 'base.html' %}{% block content %}
+<link rel="stylesheet" href="/static/quotation_setup.css">
+<div class="catalog-compact"><div class="catalog-heading"><div><a href="/list/catalog">← Service Catalog</a><h1>{{ 'Catalog item' if record else 'New catalog item' }}</h1></div><a class="button secondary" href="/quotation-defaults">Default quotation setup</a></div>
+{% if record %}<p class="catalog-stamp">Created {{ record.created[:16] }} · Updated {{ record.updated[:16] }}</p>{% endif %}
+{% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+{% macro control(key,label,kind='text',choices=none) %}<label><span class="catalog-field-label">{{ label }}</span>{% if choices %}<select name="{{ key }}" aria-label="{{ label }}" {{ 'disabled' if not writable }}>{% for val,text in choices %}<option value="{{ val }}" {{ 'selected' if d.get(key,'')==val }}>{{ text }}</option>{% endfor %}</select>{% elif kind=='area' %}<textarea name="{{ key }}" aria-label="{{ label }}" placeholder="{{ label }}" rows="{{ 2 if key=='comments' else 1 }}" {{ 'readonly' if not writable }}>{{ d.get(key,'') }}</textarea>{% else %}<input name="{{ key }}" aria-label="{{ label }}" placeholder="{{ label }}" type="{{ kind }}" {% if kind=='number' %}step="any" min="0"{% endif %} value="{{ d.get(key,'') }}" {{ 'readonly' if not writable }}>{% endif %}</label>{% endmacro %}
+<form method="post" action="{{ '/edit/catalog/'+record.id if record else '/new/catalog' }}" id="record-form"><input type="hidden" name="csrf" value="{{ csrf() }}"><table class="catalog-fields"><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody>
+<tr><th>Item code</th><td>{{ control('code','Item code') }}</td></tr>
+<tr><th>Name</th><td>{{ control('name','Name') }}</td></tr>
+<tr><th>Quotation description</th><td>{{ control('description','Quotation description','area') }}</td></tr>
+<tr><th>Service / Sub Service / Type</th><td><div class="catalog-inline">{{ control('service','Service') }}{{ control('sub_service','Sub Service') }}{{ control('type','Type') }}</div></td></tr>
+<tr><th>Unit / Pricing model</th><td><div class="catalog-inline">{{ control('unit','Unit') }}{{ control('pricing_model','Pricing model') }}</div></td></tr>
+<tr><th>Default quantity</th><td>{{ control('quantity','Default quantity','number') }}</td></tr>
+<tr><th>Default selling price</th><td>{{ control('price','Default selling price','number') }}<small>Blank means Unpriced; zero means explicitly free. VM size prices come from the customer VM catalog.</small></td></tr>
+<tr><th>Currency</th><td>{{ control('currency','Currency') }}</td></tr>
+<tr><th>Billing type</th><td>{{ control('billing','Billing type',choices=[('monthly','Monthly'),('one_time','One-time')]) }}</td></tr>
+<tr><th>Calculation method</th><td>{{ control('method','Calculation method',choices=[('unit','Quantity × unit price'),('fixed','Fixed fee'),('percent','Percentage of selected monthly services')]) }}</td></tr>
+<tr><th>Fixed fee / Support rate</th><td><div class="catalog-inline">{{ control('fixed_fee','Fixed fee','number') }}{{ control('support_percent','Support percentage','number') }}</div></td></tr>
+<tr><th>Minimum quantity / Bundle rule</th><td>{{ control('minimum_quantity','Minimum quantity','number') }}<small>Quantity × unit price; quantities below this minimum must be corrected before saving/exporting.</small></td></tr>
+<tr><th>Default comments</th><td>{{ control('comments','Default comments','area') }}</td></tr>
+<tr><th>Status</th><td>{{ control('status','Status',choices=[('Active','Active'),('Inactive','Inactive')]) }}</td></tr>
+</tbody></table>
+<details class="catalog-extra"><summary>Additional catalog fields</summary><table class="catalog-fields"><tbody>{% for key,label,kind in fields if key in ['vendor','category','cost','duration','discount','internal_notes'] %}<tr><th>{{ label }}</th><td>{{ control(key,label,'area' if kind=='area' else 'number' if kind=='money' else 'text') }}</td></tr>{% endfor %}</tbody></table></details>
+<div class="catalog-actions">{% if writable %}<button class="button">Save catalog</button>{% endif %}<a class="button secondary" href="/list/catalog">Cancel</a>{% if record and writable %}<button type="submit" form="catalog-delete" class="danger">Delete catalog</button>{% endif %}</div></form>
+{% if record and writable %}<form method="post" id="catalog-delete" action="/record/{{ record.id }}/delete" data-confirm="Delete this catalog item? Existing quotation snapshots will be retained."><input type="hidden" name="csrf" value="{{ csrf() }}"></form>{% endif %}
+</div>{% endblock %}

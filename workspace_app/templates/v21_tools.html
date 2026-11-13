@@ -1,0 +1,4 @@
+{% if r.kind in ['quote','customer'] %}<div class="v21-tools">
+{% if r.kind=='quote' %}{% set validity=v21_validity(r) %}<span class="badge validity-{{ validity.tone }}">{{ validity.status }}{% if validity.days is not none %} · {{ (-validity.days)|string+' days ago' if validity.days<0 else validity.days|string+' days left' }}{% endif %}</span><button type="button" class="secondary" data-copy-quote="/record/{{ r.id }}">Copy link</button>{% if can_margin(r) and can_edit(r) %}<a href="/quotes/{{ r.id }}/internal-notes">Internal notes</a><a href="/quotes/{{ r.id }}/pre-send">Pre-send check</a>{% endif %}{% else %}<a href="/customers/{{ r.id }}/activity">Activity timeline</a>{% endif %}
+{% if user %}<form method="post" action="/v21/favorites/{{ r.id }}"><input type="hidden" name="csrf" value="{{ csrf() }}"><button class="secondary">☆ Favorite</button></form>{% endif %}
+<span role="status" data-copy-feedback></span></div>{% endif %}

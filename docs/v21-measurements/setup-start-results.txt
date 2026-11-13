@@ -1,0 +1,28 @@
+......................
+----------------------------------------------------------------------
+Ran 22 tests in 10.776s
+
+OK
+V21 settings: /tmp/tmp7ls69u2c/Local/CirrusWorkplaceV21/Config/profile.json
+V21 data: /tmp/tmp7ls69u2c/Local/CirrusWorkplaceV21/Data
+V21 settings: /tmp/tmpujlm6elk/Local/CirrusWorkplaceV21/Config/profile.json
+V21 data: /tmp/tmpujlm6elk/Local/CirrusWorkplaceV21/Data
+
+Create your V21 test administrator. V20 accounts are not changed.
+
+Setup complete. Run start.bat, then open your existing IIS URL or http://127.0.0.1:8000 (HTTP profiles).
+Use the V21 login you created. V20 data is unchanged. Test SMTP is disabled.
+V21 settings: /tmp/tmpujlm6elk/Local/CirrusWorkplaceV21/Config/profile.json
+V21 data: /tmp/tmpujlm6elk/Local/CirrusWorkplaceV21/Data
+
+Setup complete. Run start.bat, then open your existing IIS URL or http://127.0.0.1:8000 (HTTP profiles).
+Use the V21 login you created. V20 data is unchanged. Test SMTP is disabled.
+V21 settings: /tmp/tmpud_h7m4g/Local/CirrusWorkplaceV21/Config/profile.json
+V21 data: /tmp/tmpud_h7m4g/Local/CirrusWorkplaceV21/Data
+
+Launcher regressions:
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.201s
+
+OK

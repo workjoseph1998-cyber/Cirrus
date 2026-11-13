@@ -1,0 +1,1 @@
+'use strict';(()=>{const form=document.querySelector('.report-filters');if(!form)return;const period=form.elements.period;const update=()=>form.querySelectorAll('[data-report-period]').forEach(label=>{label.hidden=!label.dataset.reportPeriod.split(' ').includes(period.value);});period.addEventListener('change',update);update();})();

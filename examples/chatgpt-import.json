@@ -1,0 +1,29 @@
+{
+  "format": "joseph-workspace",
+  "version": 1,
+  "records": [
+    {
+      "id": "7113fd2a-28a3-5128-8d0c-8e0f5a0bb0cf",
+      "kind": "note",
+      "data": {
+        "title": "[Sample] Discovery checklist",
+        "content": "Confirm workload inventory, growth horizon, availability requirements, and backup objectives.",
+        "answer": "",
+        "type": "Procedure",
+        "status": "Open",
+        "category": "",
+        "subcategory": "",
+        "tags": "sample, discovery",
+        "project_id": "",
+        "source_url": ""
+      },
+      "created": "2026-10-28T00:00:00+00:00",
+      "updated": "2026-10-28T00:00:00+00:00"
+    }
+  ],
+  "settings": {
+    "company": "Joseph Workspace",
+    "payment_terms": "",
+    "delivery_terms": ""
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "version": 21,
+  "data": "C:\\CirrusSandboxV21\\Data",
+  "documents": "C:\\CirrusSandboxV21\\Documents",
+  "exports": "C:\\CirrusSandboxV21\\Exports",
+  "backups": "C:\\CirrusSandboxV21\\Backups",
+  "v20_protected_paths": [
+    "C:\\Apps\\CirrusWorkplaceV20",
+    "C:\\ProgramData\\CirrusWorkplace",
+    "D:\\CustomerDocuments",
+    "D:\\QuotationExports",
+    "D:\\CirrusBackups"
+  ],
+  "network": {
+    "CIRRUS_ALLOWED_HOSTS": "localhost,127.0.0.1,workplace.example.internal",
+    "CIRRUS_INTERNAL_ACCESS": "1",
+    "CIRRUS_HTTPS": "1",
+    "CIRRUS_TRUSTED_PROXY": "127.0.0.1",
+    "CIRRUS_TIMEZONE": "Asia/Beirut"
+  }
+}
