@@ -1,0 +1,14 @@
+{% from 'premium_icons.html' import icon %}
+<a class="portal-brand" href="/"><img src="/static/cirrus-logo.png" alt="Cirrus"><span><strong>CIRRUS</strong><small>Workplace</small></span></a>
+<button type="button" id="close-navigation" aria-label="Close navigation">Close ✕</button>
+<nav class="premium-navigation">
+<a href="/" class="{{ 'active' if request.path=='/' }}" {{ 'aria-current=page' if request.path=='/' }} title="Dashboard">{{ icon('home') }}<span>Dashboard</span></a>
+<details class="premium-nav-section" {{ 'open' if request.path.startswith(('/list/quote','/quotes/','/documents/','/approvals','/v21/shortcuts')) }}><summary title="Quotations">{{ icon('quote') }}<span>Quotations</span>{{ icon('chevron','nav-chevron') }}</summary><div>
+<a href="/list/quote" class="{{ 'active' if request.path=='/list/quote' }}">All quotations</a><a href="/approvals">Approvals <em class="pending-badge" data-pending-badge>{{ pending_approval_count }}</em></a><a href="/v21/shortcuts">Favorites & recently viewed</a><a href="/list/quote?archive=archived">Archived quotations</a>
+</div></details>
+<a href="/customers" class="{{ 'active' if request.path.startswith('/customers') }}" title="Customers">{{ icon('users') }}<span>Customers</span></a>
+<details class="premium-nav-section" {{ 'open' if request.path.startswith(('/list/project','/list/catalog','/hosting-vms','/references','/portability')) }}><summary title="Projects & operations">{{ icon('project') }}<span>Projects & operations</span>{{ icon('chevron','nav-chevron') }}</summary><div><a href="/list/project">Projects</a><a href="/list/catalog">Service Catalog</a><a href="/hosting-vms">Hosting VMs / Customer Pricing</a><a href="/references">Reference registry</a><a href="/portability">Import / Export</a></div></details>
+<a href="/reports" class="{{ 'active' if request.path.startswith('/reports') }}" title="Reports">{{ icon('report') }}<span>Reports</span></a>
+{% if is_admin %}<details class="premium-nav-section" {{ 'open' if request.path.startswith('/administration') or request.path in ['/settings','/accounts','/automation/settings','/quotation-defaults'] }}><summary title="Administration">{{ icon('settings') }}<span>Administration</span>{{ icon('chevron','nav-chevron') }}</summary><div><a href="/accounts">Accounts & sharing</a><a href="/administration/workflow">Approvers & email</a><a href="/settings">Settings & backups</a><a href="/administration/customer-documents">Customer document storage</a><a href="/automation/settings">PDF folders & automation</a><a href="/quotation-defaults">Default quotation setup</a></div></details>{% endif %}
+<a href="/notifications" title="Notifications">{{ icon('bell') }}<span>Notifications</span></a><a href="/v21/whats-new" title="Version 21 features">{{ icon('grid') }}<span>Workspace features</span></a>
+</nav><div class="nav-footer"><span>Cirrus Workplace</span><small><strong>v21.2 · {{ 'Live' if v21_live else 'Test' }}</strong></small></div>

@@ -1,0 +1,12 @@
+{
+  "light": {
+    "identical": true,
+    "changed_bounds": null,
+    "excluded_native_scrollbar_px": 16
+  },
+  "dark": {
+    "identical": true,
+    "changed_bounds": null,
+    "excluded_native_scrollbar_px": 16
+  }
+}
